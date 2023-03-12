@@ -1,4 +1,4 @@
-local Children = require(script.Parent.PropMarkers.Children)
+local Children = require(script.Parent.Children)
 local ElementKind = require(script.Parent.ElementKind)
 local Logging = require(script.Parent.Logging)
 local Type = require(script.Parent.Type)

@@ -1,6 +1,12 @@
 {
-  "name": "Roact",
-  "tree": {
-    "$path": "src"
-  }
+	"name": "Roact",
+	"tree": {
+		"$className": "DataModel",
+
+		"ReplicatedStorage": {
+			"Roact": {
+				"$path": "src"
+			}
+		}
+	}
 }

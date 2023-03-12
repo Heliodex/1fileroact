@@ -27,10 +27,10 @@ local Roact = strict({
 	joinBindings = Binding.join,
 	createContext = require(script.createContext),
 
-	Change = require(script.PropMarkers.Change),
-	Children = require(script.PropMarkers.Children),
-	Event = require(script.PropMarkers.Event),
-	Ref = require(script.PropMarkers.Ref),
+	Change = require(script.Change),
+	Children = require(script.Children),
+	Event = require(script.Event),
+	Ref = require(script.Ref),
 
 	mount = robloxReconciler.mountVirtualTree,
 	unmount = robloxReconciler.unmountVirtualTree,

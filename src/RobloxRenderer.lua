@@ -5,11 +5,11 @@
 ]]
 
 local Binding = require(script.Parent.Binding)
-local Children = require(script.Parent.PropMarkers.Children)
+local Children = require(script.Parent.Children)
 local ElementKind = require(script.Parent.ElementKind)
 local SingleEventManager = require(script.Parent.SingleEventManager)
 local getDefaultInstanceProperty = require(script.Parent.getDefaultInstanceProperty)
-local Ref = require(script.Parent.PropMarkers.Ref)
+local Ref = require(script.Parent.Ref)
 local Type = require(script.Parent.Type)
 local internalAssert = require(script.Parent.internalAssert)
 
