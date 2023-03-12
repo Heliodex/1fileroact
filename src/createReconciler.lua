@@ -8,7 +8,7 @@ local internalAssert = require(script.Parent.internalAssert)
 
 local config = require(script.Parent.GlobalConfig).get()
 
-local InternalData = Symbol.named("InternalData")
+local InternalData = Symbol.named "InternalData"
 
 --[[
 	The reconciler is the mechanism in Roact that constructs the virtual tree

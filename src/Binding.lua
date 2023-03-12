@@ -4,7 +4,7 @@ local Type = require(script.Parent.Type)
 
 local config = require(script.Parent.GlobalConfig).get()
 
-local BindingImpl = Symbol.named("BindingImpl")
+local BindingImpl = Symbol.named "BindingImpl"
 
 local BindingInternalApi = {}
 

@@ -14,7 +14,7 @@ local config = require(script.Parent.GlobalConfig).get()
 ]]
 local MAX_PENDING_UPDATES = 100
 
-local InternalData = Symbol.named("InternalData")
+local InternalData = Symbol.named "InternalData"
 
 local componentMissingRenderMessage = [[
 The component %q is missing the `render` method.

@@ -20,14 +20,14 @@ local function addType(name)
 	TypeInternal[name] = Symbol.named("Roact" .. name)
 end
 
-addType("Binding")
-addType("Element")
-addType("HostChangeEvent")
-addType("HostEvent")
-addType("StatefulComponentClass")
-addType("StatefulComponentInstance")
-addType("VirtualNode")
-addType("VirtualTree")
+addType "Binding"
+addType "Element"
+addType "HostChangeEvent"
+addType "HostEvent"
+addType "StatefulComponentClass"
+addType "StatefulComponentInstance"
+addType "VirtualNode"
+addType "VirtualTree"
 
 function TypeInternal.of(value)
 	if typeof(value) ~= "table" then

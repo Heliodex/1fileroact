@@ -15,7 +15,7 @@ local function createContextEntry(currentValue)
 end
 
 local function createProvider(context)
-	local Provider = Component:extend("Provider")
+	local Provider = Component:extend "Provider"
 
 	function Provider:init(props)
 		self.contextEntry = createContextEntry(props.value)
@@ -56,7 +56,7 @@ local function createProvider(context)
 end
 
 local function createConsumer(context)
-	local Consumer = Component:extend("Consumer")
+	local Consumer = Component:extend "Consumer"
 
 	function Consumer.validateProps(props)
 		if type(props.render) ~= "function" then
@@ -110,7 +110,7 @@ local function createConsumer(context)
 			self.disconnect = self.contextEntry.onUpdate:subscribe(function(newValue)
 				if newValue ~= self.lastValue then
 					-- Trigger a dummy state update.
-					self:setState({})
+					self:setState {}
 				end
 			end)
 		end
@@ -132,7 +132,7 @@ Context.__index = Context
 function Context.new(defaultValue)
 	return setmetatable({
 		defaultValue = defaultValue,
-		key = Symbol.named("ContextKey"),
+		key = Symbol.named "ContextKey",
 	}, Context)
 end
 

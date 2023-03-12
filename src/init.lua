@@ -39,7 +39,7 @@ _Binding = function()
 
 	local config = _GlobalConfig().get()
 
-	local BindingImpl = Symbol.named("BindingImpl")
+	local BindingImpl = Symbol.named "BindingImpl"
 
 	local BindingInternalApi = {}
 
@@ -234,7 +234,7 @@ end
 _Children = function()
 	local Symbol = _Symbol()
 
-	local Children = Symbol.named("Children")
+	local Children = Symbol.named "Children"
 
 	return Children
 end
@@ -256,7 +256,7 @@ _Component = function()
 ]]
 	local MAX_PENDING_UPDATES = 100
 
-	local InternalData = Symbol.named("InternalData")
+	local InternalData = Symbol.named "InternalData"
 
 	local componentMissingRenderMessage = [[
 The component %q is missing the `render` method.
@@ -760,17 +760,17 @@ _ComponentLifecyclePhase = function()
 
 	local ComponentLifecyclePhase = strict({
 		-- Component methods
-		Init = Symbol.named("init"),
-		Render = Symbol.named("render"),
-		ShouldUpdate = Symbol.named("shouldUpdate"),
-		WillUpdate = Symbol.named("willUpdate"),
-		DidMount = Symbol.named("didMount"),
-		DidUpdate = Symbol.named("didUpdate"),
-		WillUnmount = Symbol.named("willUnmount"),
+		Init = Symbol.named "init",
+		Render = Symbol.named "render",
+		ShouldUpdate = Symbol.named "shouldUpdate",
+		WillUpdate = Symbol.named "willUpdate",
+		DidMount = Symbol.named "didMount",
+		DidUpdate = Symbol.named "didUpdate",
+		WillUnmount = Symbol.named "willUnmount",
 
 		-- Phases describing reconciliation status
-		ReconcileChildren = Symbol.named("reconcileChildren"),
-		Idle = Symbol.named("idle"),
+		ReconcileChildren = Symbol.named "reconcileChildren",
+		Idle = Symbol.named "idle",
 	}, "ComponentLifecyclePhase")
 
 	return ComponentLifecyclePhase
@@ -914,7 +914,7 @@ _createContext = function()
 	end
 
 	local function createProvider(context)
-		local Provider = Component:extend("Provider")
+		local Provider = Component:extend "Provider"
 
 		function Provider:init(props)
 			self.contextEntry = createContextEntry(props.value)
@@ -955,7 +955,7 @@ _createContext = function()
 	end
 
 	local function createConsumer(context)
-		local Consumer = Component:extend("Consumer")
+		local Consumer = Component:extend "Consumer"
 
 		function Consumer.validateProps(props)
 			if type(props.render) ~= "function" then
@@ -1009,7 +1009,7 @@ _createContext = function()
 				self.disconnect = self.contextEntry.onUpdate:subscribe(function(newValue)
 					if newValue ~= self.lastValue then
 						-- Trigger a dummy state update.
-						self:setState({})
+						self:setState {}
 					end
 				end)
 			end
@@ -1031,7 +1031,7 @@ _createContext = function()
 	function Context.new(defaultValue)
 		return setmetatable({
 			defaultValue = defaultValue,
-			key = Symbol.named("ContextKey"),
+			key = Symbol.named "ContextKey",
 		}, Context)
 	end
 
@@ -1154,7 +1154,7 @@ _createReconciler = function()
 
 	local config = _GlobalConfig().get()
 
-	local InternalData = Symbol.named("InternalData")
+	local InternalData = Symbol.named "InternalData"
 
 	--[[
 	The reconciler is the mechanism in Roact that constructs the virtual tree
@@ -1831,11 +1831,11 @@ _ElementKind = function()
 	local ElementKind = newproxy(true)
 
 	local ElementKindInternal = {
-		Portal = Symbol.named("Portal"),
-		Host = Symbol.named("Host"),
-		Function = Symbol.named("Function"),
-		Stateful = Symbol.named("Stateful"),
-		Fragment = Symbol.named("Fragment"),
+		Portal = Symbol.named "Portal",
+		Host = Symbol.named "Host",
+		Function = Symbol.named "Function",
+		Stateful = Symbol.named "Stateful",
+		Fragment = Symbol.named "Fragment",
 	}
 
 	function ElementKindInternal.of(value)
@@ -1884,7 +1884,7 @@ _ElementUtils = function()
 	This occurs when you return only one element from a function component or
 	stateful render function.
 	]]
-	ElementUtils.UseParentKey = Symbol.named("UseParentKey")
+	ElementUtils.UseParentKey = Symbol.named "UseParentKey"
 
 	--[[
 	Returns an iterator over the children of an element.
@@ -1934,7 +1934,7 @@ _ElementUtils = function()
 			return pairs(elementOrElements)
 		end
 
-		error("Invalid elements")
+		error "Invalid elements"
 	end
 
 	--[[
@@ -1963,7 +1963,7 @@ _ElementUtils = function()
 			return elements[hostKey]
 		end
 
-		error("Invalid elements")
+		error "Invalid elements"
 	end
 
 	return ElementUtils
@@ -2057,7 +2057,7 @@ _getDefaultInstanceProperty = function()
 
 	local Symbol = _Symbol()
 
-	local Nil = Symbol.named("Nil")
+	local Nil = Symbol.named "Nil"
 	local _cachedPropertyValues = {}
 
 	local function getDefaultInstanceProperty(className, propertyName)
@@ -2329,7 +2329,7 @@ _None = function()
 
 	-- Marker used to specify that the value is nothing, because nil cannot be
 	-- stored in tables.
-	local None = Symbol.named("None")
+	local None = Symbol.named "None"
 
 	return None
 end
@@ -2393,7 +2393,7 @@ end
 _Portal = function()
 	local Symbol = _Symbol()
 
-	local Portal = Symbol.named("Portal")
+	local Portal = Symbol.named "Portal"
 
 	return Portal
 end
@@ -2406,7 +2406,7 @@ _PureComponent = function()
 
 	local Component = _Component()
 
-	local PureComponent = Component:extend("PureComponent")
+	local PureComponent = Component:extend "PureComponent"
 
 	-- When extend()ing a component, you don't get an extend method.
 	-- This is to promote composition over inheritance.
@@ -2445,7 +2445,7 @@ end
 _Ref = function()
 	local Symbol = _Symbol()
 
-	local Ref = Symbol.named("Ref")
+	local Ref = Symbol.named "Ref"
 
 	return Ref
 end
@@ -2960,14 +2960,14 @@ _Type = function()
 		TypeInternal[name] = Symbol.named("Roact" .. name)
 	end
 
-	addType("Binding")
-	addType("Element")
-	addType("HostChangeEvent")
-	addType("HostEvent")
-	addType("StatefulComponentClass")
-	addType("StatefulComponentInstance")
-	addType("VirtualNode")
-	addType("VirtualTree")
+	addType "Binding"
+	addType "Element"
+	addType "HostChangeEvent"
+	addType "HostEvent"
+	addType "StatefulComponentClass"
+	addType "StatefulComponentInstance"
+	addType "VirtualNode"
+	addType "VirtualTree"
 
 	function TypeInternal.of(value)
 		if typeof(value) ~= "table" then
@@ -2999,7 +2999,7 @@ local Binding = _Binding()
 local robloxReconciler = createReconciler(RobloxRenderer)
 local reconcilerCompat = createReconcilerCompat(robloxReconciler)
 
-local Roact = strict({
+local Roact = strict {
 	Component = _Component(),
 	createElement = _createElement(),
 	createFragment = _createFragment(),
@@ -3030,6 +3030,6 @@ local Roact = strict({
 
 	-- APIs that may change in the future without warning
 	UNSTABLE = {},
-})
+}
 
 return Roact

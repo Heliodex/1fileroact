@@ -5,7 +5,7 @@
 
 local Component = require(script.Parent.Component)
 
-local PureComponent = Component:extend("PureComponent")
+local PureComponent = Component:extend "PureComponent"
 
 -- When extend()ing a component, you don't get an extend method.
 -- This is to promote composition over inheritance.

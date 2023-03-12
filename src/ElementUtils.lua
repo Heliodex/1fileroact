@@ -15,7 +15,7 @@ local ElementUtils = {}
 	This occurs when you return only one element from a function component or
 	stateful render function.
 ]]
-ElementUtils.UseParentKey = Symbol.named("UseParentKey")
+ElementUtils.UseParentKey = Symbol.named "UseParentKey"
 
 --[[
 	Returns an iterator over the children of an element.
@@ -65,7 +65,7 @@ function ElementUtils.iterateElements(elementOrElements)
 		return pairs(elementOrElements)
 	end
 
-	error("Invalid elements")
+	error "Invalid elements"
 end
 
 --[[
@@ -94,7 +94,7 @@ function ElementUtils.getElementByKey(elements, hostKey)
 		return elements[hostKey]
 	end
 
-	error("Invalid elements")
+	error "Invalid elements"
 end
 
 return ElementUtils
