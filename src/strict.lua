@@ -1,5 +1,5 @@
 --!strict
-local function strict(t: { [any]: any }, name: string?)
+local function strict(t, name)
 	-- FIXME Luau: Need to define a new variable since reassigning `name = ...`
 	-- doesn't narrow the type
 	local newName = name or tostring(t)

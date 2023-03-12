@@ -17,8 +17,6 @@ local ElementUtils = {}
 ]]
 ElementUtils.UseParentKey = Symbol.named("UseParentKey")
 
-type Iterator<K, V> = ({ [K]: V }, K?) -> (K?, V?)
-type Element = { [any]: any }
 --[[
 	Returns an iterator over the children of an element.
 	`elementOrElements` may be one of:
@@ -40,7 +38,7 @@ type Element = { [any]: any }
 
 	If `elementOrElements` is none of the above, this function will throw.
 ]]
-function ElementUtils.iterateElements<K>(elementOrElements): (Iterator<K, Element>, any, nil)
+function ElementUtils.iterateElements(elementOrElements)
 	local richType = Type.of(elementOrElements)
 
 	-- Single child
@@ -60,7 +58,7 @@ function ElementUtils.iterateElements<K>(elementOrElements): (Iterator<K, Elemen
 	local regularType = typeof(elementOrElements)
 
 	if elementOrElements == nil or regularType == "boolean" then
-		return (noop :: any) :: Iterator<K, Element>
+		return noop
 	end
 
 	if regularType == "table" then

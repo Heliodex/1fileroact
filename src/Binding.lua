@@ -134,7 +134,7 @@ function BindingInternalApi.join(upstreamBindings)
 				disconnect()
 			end
 
-			disconnects = nil :: any
+			disconnects = nil
 		end
 	end
 
