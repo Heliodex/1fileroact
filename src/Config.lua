@@ -100,10 +100,7 @@ function Config:get()
 end
 
 function Config:scoped(configValues, callback)
-	local previousValues = {}
-	for key, value in pairs(self._currentConfig) do
-		previousValues[key] = value
-	end
+	local previousValues = table.clone(self._currentConfig)
 
 	self.set(configValues)
 
