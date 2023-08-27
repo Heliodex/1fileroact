@@ -45,7 +45,7 @@ Component.__componentName = "Component"
 function Component:extend(name)
 	if config.typeChecks then
 		assert(Type.of(self) == Type.StatefulComponentClass, "Invalid `self` argument to `extend`.")
-		assert(typeof(name) == "string", "Component class name must be a string")
+		assert(type(name) == "string", "Component class name must be a string")
 	end
 
 	local class = {}
@@ -81,7 +81,7 @@ function Component:__getDerivedState(incomingProps, incomingState)
 
 		if derivedState ~= nil then
 			if config.typeChecks then
-				assert(typeof(derivedState) == "table", "getDerivedStateFromProps must return a table!")
+				assert(type(derivedState) == "table", "getDerivedStateFromProps must return a table!")
 			end
 
 			return derivedState
@@ -121,14 +121,14 @@ function Component:setState(mapState)
 	local pendingState = internalData.pendingState
 
 	local partialState
-	if typeof(mapState) == "function" then
+	if type(mapState) == "function" then
 		partialState = mapState(pendingState or self.state, self.props)
 
 		-- Abort the state update if the given state updater function returns nil
 		if partialState == nil then
 			return
 		end
-	elseif typeof(mapState) == "table" then
+	elseif type(mapState) == "table" then
 		partialState = mapState
 	else
 		error("Invalid argument to setState, expected function or table", 2)
@@ -252,10 +252,10 @@ function Component:__validateProps(props)
 		return
 	end
 
-	if typeof(validator) ~= "function" then
+	if type(validator) ~= "function" then
 		error(
 			("validateProps must be a function, but it is a %s.\nCheck the definition of the component %q."):format(
-				typeof(validator),
+				type(validator),
 				self.__componentName
 			)
 		)
@@ -387,7 +387,7 @@ function Component:__update(updatedElement, updatedState)
 			"Expected arg #1 to be of type Element or nil"
 		)
 		internalAssert(
-			typeof(updatedState) == "table" or updatedState == nil,
+			type(updatedState) == "table" or updatedState == nil,
 			"Expected arg #2 to be of type table or nil"
 		)
 	end

@@ -23,7 +23,7 @@ local ElementKindInternal = {
 }
 
 function ElementKindInternal.of(value)
-	if typeof(value) ~= "table" then
+	if type(value) ~= "table" then
 		return nil
 	end
 
@@ -40,7 +40,7 @@ function ElementKindInternal.fromComponent(component)
 	if component == Portal then
 		return ElementKind.Portal
 	else
-		return componentTypesToKinds[typeof(component)]
+		return componentTypesToKinds[type(component)]
 	end
 end
 

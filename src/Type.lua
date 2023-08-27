@@ -30,7 +30,7 @@ addType "VirtualNode"
 addType "VirtualTree"
 
 function TypeInternal.of(value)
-	if typeof(value) ~= "table" then
+	if type(value) ~= "table" then
 		return nil
 	end
 

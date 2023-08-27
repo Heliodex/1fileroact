@@ -38,13 +38,13 @@ local function applyRef(ref, newHostObject)
 		return
 	end
 
-	if typeof(ref) == "function" then
+	if type(ref) == "function" then
 		ref(newHostObject)
 	elseif Type.of(ref) == Type.Binding then
 		Binding.update(ref, newHostObject)
 	else
 		-- TODO (#197): Better error message
-		error(("Invalid ref: Expected type Binding but got %s"):format(typeof(ref)))
+		error(("Invalid ref: Expected type Binding but got %s"):format(type(ref)))
 	end
 end
 
@@ -172,7 +172,7 @@ end
 local RobloxRenderer = {}
 
 function RobloxRenderer.isHostObject(target)
-	return typeof(target) == "Instance"
+	return type(target) == "Instance"
 end
 
 function RobloxRenderer.mountHostNode(reconciler, virtualNode)

@@ -144,7 +144,7 @@ local function createReconciler(renderer)
 	end
 
 	local function updateVirtualNodeWithRenderResult(virtualNode, hostParent, renderResult)
-		if Type.of(renderResult) == Type.Element or renderResult == nil or typeof(renderResult) == "boolean" then
+		if Type.of(renderResult) == Type.Element or renderResult == nil or type(renderResult) == "boolean" then
 			updateChildren(virtualNode, hostParent, renderResult)
 		else
 			error(
@@ -234,7 +234,7 @@ local function createReconciler(renderer)
 		end
 		if config.typeChecks then
 			assert(
-				Type.of(newElement) == Type.Element or typeof(newElement) == "boolean" or newElement == nil,
+				Type.of(newElement) == Type.Element or type(newElement) == "boolean" or newElement == nil,
 				"Expected arg #2 to be of type Element, boolean, or nil"
 			)
 		end
@@ -244,7 +244,7 @@ local function createReconciler(renderer)
 			return virtualNode
 		end
 
-		if typeof(newElement) == "boolean" or newElement == nil then
+		if type(newElement) == "boolean" or newElement == nil then
 			unmountVirtualNode(virtualNode)
 			return nil
 		end
@@ -291,16 +291,16 @@ local function createReconciler(renderer)
 				renderer.isHostObject(hostParent) or hostParent == nil,
 				"Expected arg #2 to be a host object"
 			)
-			internalAssert(typeof(context) == "table" or context == nil, "Expected arg #4 to be of type table or nil")
+			internalAssert(type(context) == "table" or context == nil, "Expected arg #4 to be of type table or nil")
 			internalAssert(
-				typeof(legacyContext) == "table" or legacyContext == nil,
+				type(legacyContext) == "table" or legacyContext == nil,
 				"Expected arg #5 to be of type table or nil"
 			)
 		end
 		if config.typeChecks then
 			assert(hostKey ~= nil, "Expected arg #3 to be non-nil")
 			assert(
-				Type.of(element) == Type.Element or typeof(element) == "boolean",
+				Type.of(element) == Type.Element or type(element) == "boolean",
 				"Expected arg #1 to be of type Element or boolean"
 			)
 		end
@@ -370,20 +370,20 @@ local function createReconciler(renderer)
 				"Expected arg #2 to be a host object"
 			)
 			internalAssert(
-				typeof(legacyContext) == "table" or legacyContext == nil,
+				type(legacyContext) == "table" or legacyContext == nil,
 				"Expected arg #5 to be of type table or nil"
 			)
 		end
 		if config.typeChecks then
 			assert(hostKey ~= nil, "Expected arg #3 to be non-nil")
 			assert(
-				Type.of(element) == Type.Element or typeof(element) == "boolean",
+				Type.of(element) == Type.Element or type(element) == "boolean",
 				"Expected arg #1 to be of type Element or boolean"
 			)
 		end
 
 		-- Boolean values render as nil to enable terse conditional rendering.
-		if typeof(element) == "boolean" then
+		if type(element) == "boolean" then
 			return nil
 		end
 

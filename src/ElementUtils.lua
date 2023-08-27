@@ -55,7 +55,7 @@ function ElementUtils.iterateElements(elementOrElements)
 		end
 	end
 
-	local regularType = typeof(elementOrElements)
+	local regularType = type(elementOrElements)
 
 	if elementOrElements == nil or regularType == "boolean" then
 		return noop
@@ -78,7 +78,7 @@ end
 	* If `elements` is a table of elements, this will return `elements[key]`.
 ]]
 function ElementUtils.getElementByKey(elements, hostKey)
-	if elements == nil or typeof(elements) == "boolean" then
+	if elements == nil or type(elements) == "boolean" then
 		return nil
 	end
 
@@ -90,7 +90,7 @@ function ElementUtils.getElementByKey(elements, hostKey)
 		return nil
 	end
 
-	if typeof(elements) == "table" then
+	if type(elements) == "table" then
 		return elements[hostKey]
 	end
 

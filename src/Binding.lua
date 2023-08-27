@@ -65,7 +65,7 @@ end
 function BindingInternalApi.map(upstreamBinding, predicate)
 	if config.typeChecks then
 		assert(Type.of(upstreamBinding) == Type.Binding, "Expected arg #1 to be a binding")
-		assert(typeof(predicate) == "function", "Expected arg #1 to be a function")
+		assert(type(predicate) == "function", "Expected arg #1 to be a function")
 	end
 
 	local impl = {}
@@ -92,7 +92,7 @@ end
 
 function BindingInternalApi.join(upstreamBindings)
 	if config.typeChecks then
-		assert(typeof(upstreamBindings) == "table", "Expected arg #1 to be of type table")
+		assert(type(upstreamBindings) == "table", "Expected arg #1 to be of type table")
 
 		for key, value in pairs(upstreamBindings) do
 			if Type.of(value) ~= Type.Binding then

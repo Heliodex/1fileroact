@@ -73,7 +73,7 @@ function Config:set(configValues)
 		if defaultConfig[key] == nil then
 			local message = ("Invalid global configuration key %q (type %s). Valid configuration keys are: %s"):format(
 				tostring(key),
-				typeof(key),
+				type(key),
 				table.concat(defaultConfigKeys, ", ")
 			)
 
@@ -81,10 +81,10 @@ function Config:set(configValues)
 		end
 
 		-- Right now, all configuration values must be boolean.
-		if typeof(value) ~= "boolean" then
+		if type(value) ~= "boolean" then
 			local message = ("Invalid value %q (type %s) for global configuration key %q. Valid values are: true, false"):format(
 				tostring(value),
-				typeof(value),
+				type(value),
 				tostring(key)
 			)
 
