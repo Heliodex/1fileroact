@@ -13,7 +13,7 @@
 		})
 ]]
 
-local Type = require(script.Parent.Type)
+local Type = require "./Type"
 
 local Event = {}
 

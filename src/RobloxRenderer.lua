@@ -4,16 +4,16 @@
 	renderer that does anything.
 ]]
 
-local Binding = require(script.Parent.Binding)
-local Children = require(script.Parent.Children)
-local ElementKind = require(script.Parent.ElementKind)
-local SingleEventManager = require(script.Parent.SingleEventManager)
-local getDefaultInstanceProperty = require(script.Parent.getDefaultInstanceProperty)
-local Ref = require(script.Parent.Ref)
-local Type = require(script.Parent.Type)
-local internalAssert = require(script.Parent.internalAssert)
+local Binding = require "./Binding"
+local Children = require "./Children"
+local ElementKind = require "./ElementKind"
+local SingleEventManager = require "./SingleEventManager"
+local getDefaultInstanceProperty = require "./getDefaultInstanceProperty"
+local Ref = require "./Ref"
+local Type = require "./Type"
+local internalAssert = require "./internalAssert"
 
-local config = require(script.Parent.GlobalConfig).get()
+local config = require("./GlobalConfig").get()
 
 local applyPropsError = [[
 Error applying props:

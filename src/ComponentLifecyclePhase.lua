@@ -1,5 +1,5 @@
-local Symbol = require(script.Parent.Symbol)
-local strict = require(script.Parent.strict)
+local Symbol = require "./Symbol"
+local strict = require "./strict"
 
 local ComponentLifecyclePhase = strict({
 	-- Component methods

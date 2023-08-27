@@ -1,4 +1,4 @@
-local Symbol = require(script.Parent.Symbol)
+local Symbol = require "./Symbol"
 
 local Children = Symbol.named "Children"
 

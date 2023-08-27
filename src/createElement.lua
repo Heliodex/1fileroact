@@ -1,9 +1,9 @@
-local Children = require(script.Parent.Children)
-local ElementKind = require(script.Parent.ElementKind)
-local Logging = require(script.Parent.Logging)
-local Type = require(script.Parent.Type)
+local Children = require "./Children"
+local ElementKind = require "./ElementKind"
+local Logging = require "./Logging"
+local Type = require "./Type"
 
-local config = require(script.Parent.GlobalConfig).get()
+local config = require("./GlobalConfig").get()
 
 local multipleChildrenMessage = [[
 The prop `Roact.Children` was defined but was overridden by the third parameter to createElement!

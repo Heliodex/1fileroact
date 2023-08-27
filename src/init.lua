@@ -3,34 +3,34 @@
 	Packages up the internals of Roact and exposes a public API for it.
 ]]
 
-local GlobalConfig = require(script.GlobalConfig)
-local createReconciler = require(script.createReconciler)
-local createReconcilerCompat = require(script.createReconcilerCompat)
-local RobloxRenderer = require(script.RobloxRenderer)
-local strict = require(script.strict)
-local Binding = require(script.Binding)
+local GlobalConfig = require "./GlobalConfig"
+local createReconciler = require "./createReconciler"
+local createReconcilerCompat = require "./createReconcilerCompat"
+local RobloxRenderer = require "./RobloxRenderer"
+local strict = require "./strict"
+local Binding = require "./Binding"
 
 local robloxReconciler = createReconciler(RobloxRenderer)
 local reconcilerCompat = createReconcilerCompat(robloxReconciler)
 
 local Roact = strict {
-	Component = require(script.Component),
-	createElement = require(script.createElement),
-	createFragment = require(script.createFragment),
-	oneChild = require(script.oneChild),
-	PureComponent = require(script.PureComponent),
-	None = require(script.None),
-	Portal = require(script.Portal),
-	createRef = require(script.createRef),
-	forwardRef = require(script.forwardRef),
+	Component = require "./Component",
+	createElement = require "./createElement",
+	createFragment = require "./createFragment",
+	oneChild = require "./oneChild",
+	PureComponent = require "./PureComponent",
+	None = require "./None",
+	Portal = require "./Portal",
+	createRef = require "./createRef",
+	forwardRef = require "./forwardRef",
 	createBinding = Binding.create,
 	joinBindings = Binding.join,
-	createContext = require(script.createContext),
+	createContext = require "./createContext",
 
-	Change = require(script.Change),
-	Children = require(script.Children),
-	Event = require(script.Event),
-	Ref = require(script.Ref),
+	Change = require "./Change",
+	Children = require "./Children",
+	Event = require "./Event",
+	Ref = require "./Ref",
 
 	mount = robloxReconciler.mountVirtualTree,
 	unmount = robloxReconciler.unmountVirtualTree,

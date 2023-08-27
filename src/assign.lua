@@ -1,4 +1,4 @@
-local None = require(script.Parent.None)
+local None = require "./None"
 
 --[[
 	Merges values from zero or more tables onto a target table. If a value is

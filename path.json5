@@ -1,0 +1,33 @@
+{
+	rules: [
+		// "remove_spaces",
+		"remove_compound_assignment",
+		// "group_local_assignment",
+		// "compute_expression",
+		"remove_unused_if_branch",
+		"remove_unused_while",
+		"remove_empty_do",
+		// "remove_method_definition",
+		"remove_function_call_parens",
+		"filter_after_early_return",
+		// {
+		// 	rule: "rename_variables",
+		// 	globals: ["$default", "$roblox"],
+		// },
+		{
+			rule: "convert_require",
+			current: {
+				name: "path",
+
+				// optional (defaults to 'init')
+				module_folder_name: "init",
+			},
+			target: {
+				name: "roblox",
+
+				// optional (defaults to 'find_first_child')
+				indexing_style: "property", // 'wait_for_child' or 'property'
+			},
+		},
+	],
+}

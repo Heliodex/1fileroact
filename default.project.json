@@ -5,7 +5,7 @@
 
 		"ReplicatedStorage": {
 			"Roact": {
-				"$path": "src"
+				"$path": "darksrc"
 			}
 		},
 

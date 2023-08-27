@@ -1,11 +1,11 @@
-local assign = require(script.Parent.assign)
-local ComponentLifecyclePhase = require(script.Parent.ComponentLifecyclePhase)
-local Type = require(script.Parent.Type)
-local Symbol = require(script.Parent.Symbol)
-local invalidSetStateMessages = require(script.Parent.invalidSetStateMessages)
-local internalAssert = require(script.Parent.internalAssert)
+local assign = require "./assign"
+local ComponentLifecyclePhase = require "./ComponentLifecyclePhase"
+local Type = require "./Type"
+local Symbol = require "./Symbol"
+local invalidSetStateMessages = require "./invalidSetStateMessages"
+local internalAssert = require "./internalAssert"
 
-local config = require(script.Parent.GlobalConfig).get()
+local config = require("./GlobalConfig").get()
 
 --[[
 	Calling setState during certain lifecycle allowed methods has the potential

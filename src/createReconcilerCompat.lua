@@ -3,7 +3,7 @@
 	this shim is easy -- just delete this file and remove it from init.
 ]]
 
-local Logging = require(script.Parent.Logging)
+local Logging = require "./Logging"
 
 local reifyMessage = [[
 Roact.reify has been renamed to Roact.mount and will be removed in a future release.

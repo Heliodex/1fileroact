@@ -1,8 +1,8 @@
-local assign = require(script.Parent.assign)
-local None = require(script.Parent.None)
-local Ref = require(script.Parent.Ref)
+local assign = require "./assign"
+local None = require "./None"
+local Ref = require "./Ref"
 
-local config = require(script.Parent.GlobalConfig).get()
+local config = require("./GlobalConfig").get()
 
 local excludeRef = {
 	[Ref] = None,

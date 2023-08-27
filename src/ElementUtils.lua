@@ -1,6 +1,6 @@
 --!strict
-local Type = require(script.Parent.Type)
-local Symbol = require(script.Parent.Symbol)
+local Type = require "./Type"
+local Symbol = require "./Symbol"
 
 local function noop()
 	return nil

@@ -1,12 +1,12 @@
 --!nonstrict
-local Type = require(script.Parent.Type)
-local ElementKind = require(script.Parent.ElementKind)
-local ElementUtils = require(script.Parent.ElementUtils)
-local Children = require(script.Parent.Children)
-local Symbol = require(script.Parent.Symbol)
-local internalAssert = require(script.Parent.internalAssert)
+local Type = require "./Type"
+local ElementKind = require "./ElementKind"
+local ElementUtils = require "./ElementUtils"
+local Children = require "./Children"
+local Symbol = require "./Symbol"
+local internalAssert = require "./internalAssert"
 
-local config = require(script.Parent.GlobalConfig).get()
+local config = require("./GlobalConfig").get()
 
 local InternalData = Symbol.named "InternalData"
 

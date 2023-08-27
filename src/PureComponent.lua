@@ -3,7 +3,7 @@
 	resulting component to be pure.
 ]]
 
-local Component = require(script.Parent.Component)
+local Component = require "./Component"
 
 local PureComponent = Component:extend "PureComponent"
 
