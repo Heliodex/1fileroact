@@ -1,7 +1,0 @@
-{
-	"languageMode": "nonstrict",
-	"lint": {
-    "*": true
-  },
-	"lintErrors": true
-}

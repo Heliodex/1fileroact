@@ -7,6 +7,14 @@
 			"Roact": {
 				"$path": "src"
 			}
+		},
+
+		"StarterPlayer": {
+			"StarterPlayerScripts": {
+				"Client": {
+					"$path": "client"
+				}
+			}
 		}
 	}
 }
