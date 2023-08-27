@@ -8,7 +8,7 @@
 		}
 ]]
 
-local Symbol = require "./Symbol"
+local Symbol = require "./Symbol2"
 local strict = require "./strict"
 local Portal = require "./Portal"
 

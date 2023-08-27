@@ -1,4 +1,3 @@
---!nonstrict
 local Type = require "./Type"
 local ElementKind = require "./ElementKind"
 local ElementUtils = require "./ElementUtils"
@@ -173,20 +172,12 @@ local function createReconciler(renderer)
 		-- selene: allow(if_same_then_else)
 		if kind == ElementKind.Host then
 			renderer.unmountHostNode(reconciler, virtualNode)
-		elseif kind == ElementKind.Function then
+		elseif kind == ElementKind.Function or kind == ElementKind.Portal or kind == ElementKind.Fragment then
 			for _, childNode in pairs(virtualNode.children) do
 				unmountVirtualNode(childNode)
 			end
 		elseif kind == ElementKind.Stateful then
 			virtualNode.instance:__unmount()
-		elseif kind == ElementKind.Portal then
-			for _, childNode in pairs(virtualNode.children) do
-				unmountVirtualNode(childNode)
-			end
-		elseif kind == ElementKind.Fragment then
-			for _, childNode in pairs(virtualNode.children) do
-				unmountVirtualNode(childNode)
-			end
 		else
 			error(("Unknown ElementKind %q"):format(tostring(kind)), 2)
 		end
